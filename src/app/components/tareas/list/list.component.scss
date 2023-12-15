@@ -1,0 +1,54 @@
+.end-date {
+    font-size: 12px;
+}
+
+.tarea-content ion-note {
+    font-size: 0.9rem;
+}
+
+.tarea-content {
+    // line-height: 1.4;
+}
+
+.tarea-item ion-item {
+    align-items: flex-start !important;
+}
+  
+.tarea-content strong {
+    display: block;
+    max-width: calc(100% - 60px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tarea-description {
+    line-height: 2.2 !important;
+}
+
+ion-checkbox {
+    margin-top: 8px;
+}
+
+.unread-indicator {
+    background: var(--ion-color-primary);
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    position: absolute;
+    inset-inline-start: 12px;
+    top: 12px;
+}
+  
+.metadata-end-wrapper {
+    position: absolute;
+    top: 10px;
+    inset-inline-end: 10px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+ion-checkbox {
+    --checkbox-background-checked: var(--ion-color-success);
+    --border-color-checked: var(--ion-color-success);
+}

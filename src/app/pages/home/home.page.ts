@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-tab2',
+  selector: 'home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss']
 })
 export class Home {
 
+  user_firstName = 'usuario';
+  
   constructor() {}
 
 }
