@@ -1,0 +1,85 @@
+<ion-list [inset]="true">
+  <ion-item-sliding class="tarea-item">
+    <ion-item-options side="start">
+      <ion-item-option color="success" expandable><ion-icon name="checkmark"></ion-icon></ion-item-option>
+    </ion-item-options>
+    <ion-item [button]="true" detail="false">
+      <!-- <div class="unread-indicator-wrapper" slot="start">
+        <div class="unread-indicator"></div>
+      </div> -->
+      <ion-checkbox slot="start" aria-label=""></ion-checkbox>
+      <ion-label class="tarea-content">
+        <strong>Ir a correr</strong>
+        <ion-note color="medium" class="tarea-description ion-text-nowrap">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus magni facilis inventore reiciendis dolorem reprehenderit officiis, ab eveniet eos explicabo impedit. Mollitia, harum totam odio atque facere officia ullam sint.
+        </ion-note><br>
+        <ion-badge color="warning" slot="start">Personal</ion-badge>
+      </ion-label>
+      <div class="metadata-end-wrapper" slot="end">
+        <ion-note class="end-date" color="medium">vence hoy a las 12:00</ion-note>
+        <ion-icon color="medium" name="chevron-forward"></ion-icon>
+      </div>
+    </ion-item>
+    <ion-item-options side="end">
+      <ion-item-option color="danger"><ion-icon name="trash"></ion-icon></ion-item-option>
+      <ion-item-option color="medium"><ion-icon color="dark" name="alarm"></ion-icon></ion-item-option>
+      <ion-item-option color="primary" expandable><ion-icon color="dark" name="create"></ion-icon></ion-item-option>
+
+    </ion-item-options>
+  </ion-item-sliding>
+  <ion-item-sliding class="tarea-item">
+    <ion-item-options side="start">
+      <ion-item-option color="success" expandable><ion-icon name="checkmark"></ion-icon></ion-item-option>
+
+    </ion-item-options>
+    <ion-item [button]="true" detail="false">
+      <!-- <div class="unread-indicator-wrapper" slot="start">
+        <div class="unread-indicator"></div>
+      </div> -->
+      <ion-checkbox slot="start" aria-label=""></ion-checkbox>
+      <ion-label class="tarea-content">
+        <strong>Aprender Vue.JS</strong>
+        <ion-note color="medium" class="tarea-description ion-text-nowrap">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus magni facilis inventore reiciendis dolorem reprehenderit officiis, ab eveniet eos explicabo impedit. Mollitia, harum totam odio atque facere officia ullam sint.
+        </ion-note><br>
+        <ion-badge color="danger" slot="start">Aprender</ion-badge>
+      </ion-label>
+      <div class="metadata-end-wrapper" slot="end">
+        <ion-note class="end-date" color="medium">vence hoy a las 19:00</ion-note>
+        <ion-icon color="medium" name="chevron-forward"></ion-icon>
+      </div>
+    </ion-item>
+    <ion-item-options side="end">
+      <ion-item-option color="danger"><ion-icon name="trash"></ion-icon></ion-item-option>
+      <ion-item-option color="medium"><ion-icon color="dark" name="alarm"></ion-icon></ion-item-option>
+      <ion-item-option color="success" expandable><ion-icon color="dark" name="checkmark"></ion-icon></ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+  <ion-item-sliding class="tarea-item">
+    <ion-item-options side="start">
+      <ion-item-option color="primary" expandable><ion-icon name="create"></ion-icon></ion-item-option>
+    </ion-item-options>
+    <ion-item color="light" [button]="true" detail="false">
+      <!-- <div class="unread-indicator-wrapper" slot="start">
+        <div class="unread-indicator"></div>
+      </div> -->
+      <ion-checkbox checked="" slot="start" aria-label=""></ion-checkbox>
+      <ion-label class="tarea-content">
+        <strong><del style="color: var(--ion-color-medium);">Programar</del></strong>
+        <ion-note color="medium" class="tarea-description ion-text-nowrap">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus magni facilis inventore reiciendis dolorem reprehenderit officiis, ab eveniet eos explicabo impedit. Mollitia, harum totam odio atque facere officia ullam sint.
+        </ion-note><br>
+        <ion-badge slot="start">Trabajo</ion-badge>
+      </ion-label>
+      <div class="metadata-end-wrapper" slot="end">
+        <ion-note class="end-date" color="medium"><ion-icon color="success" name="checkmark"></ion-icon> Completada</ion-note>
+        <ion-icon color="medium" name="chevron-forward"></ion-icon>
+      </div>
+    </ion-item>
+    <ion-item-options side="end">
+      <ion-item-option color="danger"><ion-icon name="trash"></ion-icon></ion-item-option>
+      <ion-item-option color="medium"><ion-icon color="dark" name="alarm"></ion-icon></ion-item-option>
+      <ion-item-option color="success" expandable><ion-icon color="dark" name="checkmark"></ion-icon></ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>

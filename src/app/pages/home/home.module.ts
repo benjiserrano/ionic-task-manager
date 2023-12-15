@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { Home } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
+import { ListComponent } from 'src/app/components/tareas/list/list.component';
+import { ProgressComponent } from 'src/app/components/home/progress/progress.component';
 
 @NgModule({
   imports: [
@@ -13,6 +15,6 @@ import { HomePageRoutingModule } from './home-routing.module';
     FormsModule,
     HomePageRoutingModule
   ],
-  declarations: [Home]
+  declarations: [Home, ListComponent, ProgressComponent]
 })
 export class HomePageModule {}
