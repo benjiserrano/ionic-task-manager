@@ -6,7 +6,21 @@ const routes: Routes = [
   {
     path: '',
     component: Tareas,
+  },
+  {
+    path: 'crear',
+    loadChildren: () => import('./crear/crear.module').then( m => m.CrearPageModule)
+  },
+  {
+    path: 'editar',
+    loadChildren: () => import('./editar/editar.module').then( m => m.EditarPageModule)
+  },
+  {
+    path: 'editar/:id',
+    loadChildren: () => import('./editar/editar.module').then( m => m.EditarPageModule)
+
   }
+
 ];
 
 @NgModule({
