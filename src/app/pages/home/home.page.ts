@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'home',
@@ -8,7 +9,10 @@ import { Component } from '@angular/core';
 export class Home {
 
   user_firstName = 'usuario';
-  
-  constructor() {}
 
+  constructor(public taskService: TaskService) {}
+  
+  ngOnInit(): void {
+
+  }
 }
