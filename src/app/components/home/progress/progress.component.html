@@ -1,10 +1,11 @@
 <ion-card>
   <ion-card-header>
-    <ion-card-title style="font-weight: 400;">Tienes <b>{{ task_pending }}</b> tareas pendientes</ion-card-title>
+    <ion-card-title style="font-weight: 400;">Tienes <b>{{ taskService.tasks_total - taskService.tasks_completed }}</b> tareas pendientes</ion-card-title>
   </ion-card-header>
 
   <ion-card-content>
-    <p>Has realizado 1 de 3 tareas pendientes:</p>
-    <ion-progress-bar style="height: 10px;--background: rgb(70, 70, 70);--progress-background: var(--ion-color-success)" [buffer]=".7" [value]=".35"></ion-progress-bar>
+    <p>Has realizado {{ taskService.tasks_completed }} de {{ taskService.tasks_total }} tareas:</p>
+    <ion-progress-bar style="height: 10px;--background: rgb(70, 70, 70);--progress-background: var(--ion-color-success)" [buffer]="getDayPercentage() / 100" [value]="taskService.tasks_completed / taskService.tasks_total"></ion-progress-bar>
+    <div style="text-align: center;"><small>{{ today | date:'HH:mm' }}</small></div>
   </ion-card-content>
 </ion-card>
