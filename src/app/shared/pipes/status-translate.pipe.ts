@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Status } from 'src/app/models/Task';
 
 @Pipe({
   name: 'statusTranslate'
