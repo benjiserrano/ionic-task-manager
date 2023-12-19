@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Añadir tarea</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Añadir tarea</ion-title>
+    </ion-toolbar>
+  </ion-header>
+    
+    <ion-list class="ion-padding">
+      <ion-item>
+        <ion-input [(ngModel)]="nuevaTarea.title" label="Título" labelPlacement="floating" placeholder="Título de la tarea"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-textarea [(ngModel)]="nuevaTarea.description" label="Descripción" labelPlacement="floating" placeholder="Describe brevemente la tarea"></ion-textarea>
+      </ion-item>
+  
+      <ion-item>
+        <ion-select [(ngModel)]="nuevaTarea.tags" aria-label="Etiquetas" placeholder="Etiquetas" [multiple]="true">
+          <ion-select-option *ngFor="let tag of tags" [value]="tag.id">{{ tag.name }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-list>
+  
+    <ion-button class="ion-float-right ion-margin-end" (click)="submit()">Añadir tarea</ion-button>
+</ion-content>
