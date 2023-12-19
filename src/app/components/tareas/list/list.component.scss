@@ -25,8 +25,16 @@
     line-height: 2.2 !important;
 }
 
+ion-badge {
+    margin-right: 5px;
+}
+
 ion-checkbox {
     margin-top: 8px;
+}
+
+ion-item-options ion-icon {
+    font-size: 20px;
 }
 
 .unread-indicator {

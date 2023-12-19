@@ -1,85 +1,36 @@
 <ion-list [inset]="true">
-  <ion-item-sliding class="tarea-item">
+  <ion-item-sliding (ionDrag)="taskSwipeAction($event, task)" class="tarea-item" *ngFor="let task of taskService.tasks">
     <ion-item-options side="start">
-      <ion-item-option color="success" expandable><ion-icon name="checkmark"></ion-icon></ion-item-option>
+      <ion-item-option *ngIf="task.status !== 'completed'" color="success" expandable><ion-icon name="checkmark"></ion-icon></ion-item-option>
+      <!-- <ion-item-option *ngIf="task.status === 'completed'" color="light" expandable><ion-icon name="archive"></ion-icon></ion-item-option> -->
     </ion-item-options>
-    <ion-item [button]="true" detail="false">
+    <ion-item [color]="task.status === 'completed' ? 'light' : ''" class="ion-no-padding" [button]="true" detail="false">
       <!-- <div class="unread-indicator-wrapper" slot="start">
         <div class="unread-indicator"></div>
       </div> -->
-      <ion-checkbox slot="start" aria-label=""></ion-checkbox>
-      <ion-label class="tarea-content">
-        <strong>Ir a correr</strong>
+      <ion-checkbox (ionChange)="toggleCheck($event, task)" [checked]="task.status === 'completed'" slot="start" aria-label=""></ion-checkbox>
+      <ion-label (click)="taskService.openTask(task)" class="tarea-content">
+        <strong [style]="task.status === 'completed' ? 'text-decoration: line-through;font-weight:400' : ''">{{ task.title }}</strong>
         <ion-note color="medium" class="tarea-description ion-text-nowrap">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus magni facilis inventore reiciendis dolorem reprehenderit officiis, ab eveniet eos explicabo impedit. Mollitia, harum totam odio atque facere officia ullam sint.
+          {{ task.description }}
         </ion-note><br>
-        <ion-badge color="warning" slot="start">Personal</ion-badge>
+        <app-tags-badges [tagsIds]="task.tags"></app-tags-badges>
       </ion-label>
       <div class="metadata-end-wrapper" slot="end">
-        <ion-note class="end-date" color="medium">vence hoy a las 12:00</ion-note>
+        <ion-note class="end-date" color="medium">
+          <ion-icon *ngIf="task.status === 'completed'" name="checkmark" color="success"></ion-icon>
+          <ion-icon *ngIf="task.status === 'pending'" name="time-outline"></ion-icon>
+          <ion-icon *ngIf="task.status === 'in_progress'" name="refresh-outline" color="warning"></ion-icon>
+          <ion-icon *ngIf="task.status === 'canceled'" name="close-outline" color="danger"></ion-icon>
+          <span> {{ task.status | statusTranslate }}</span>
+        </ion-note>
         <ion-icon color="medium" name="chevron-forward"></ion-icon>
       </div>
     </ion-item>
     <ion-item-options side="end">
-      <ion-item-option color="danger"><ion-icon name="trash"></ion-icon></ion-item-option>
+      <ion-item-option (click)="taskService.deleteTask(task)" color="danger"><ion-icon name="trash"></ion-icon></ion-item-option>
       <ion-item-option color="medium"><ion-icon color="dark" name="alarm"></ion-icon></ion-item-option>
-      <ion-item-option color="primary" expandable><ion-icon color="dark" name="create"></ion-icon></ion-item-option>
-
-    </ion-item-options>
-  </ion-item-sliding>
-  <ion-item-sliding class="tarea-item">
-    <ion-item-options side="start">
-      <ion-item-option color="success" expandable><ion-icon name="checkmark"></ion-icon></ion-item-option>
-
-    </ion-item-options>
-    <ion-item [button]="true" detail="false">
-      <!-- <div class="unread-indicator-wrapper" slot="start">
-        <div class="unread-indicator"></div>
-      </div> -->
-      <ion-checkbox slot="start" aria-label=""></ion-checkbox>
-      <ion-label class="tarea-content">
-        <strong>Aprender Vue.JS</strong>
-        <ion-note color="medium" class="tarea-description ion-text-nowrap">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus magni facilis inventore reiciendis dolorem reprehenderit officiis, ab eveniet eos explicabo impedit. Mollitia, harum totam odio atque facere officia ullam sint.
-        </ion-note><br>
-        <ion-badge color="danger" slot="start">Aprender</ion-badge>
-      </ion-label>
-      <div class="metadata-end-wrapper" slot="end">
-        <ion-note class="end-date" color="medium">vence hoy a las 19:00</ion-note>
-        <ion-icon color="medium" name="chevron-forward"></ion-icon>
-      </div>
-    </ion-item>
-    <ion-item-options side="end">
-      <ion-item-option color="danger"><ion-icon name="trash"></ion-icon></ion-item-option>
-      <ion-item-option color="medium"><ion-icon color="dark" name="alarm"></ion-icon></ion-item-option>
-      <ion-item-option color="success" expandable><ion-icon color="dark" name="checkmark"></ion-icon></ion-item-option>
-    </ion-item-options>
-  </ion-item-sliding>
-  <ion-item-sliding class="tarea-item">
-    <ion-item-options side="start">
-      <ion-item-option color="primary" expandable><ion-icon name="create"></ion-icon></ion-item-option>
-    </ion-item-options>
-    <ion-item color="light" [button]="true" detail="false">
-      <!-- <div class="unread-indicator-wrapper" slot="start">
-        <div class="unread-indicator"></div>
-      </div> -->
-      <ion-checkbox checked="" slot="start" aria-label=""></ion-checkbox>
-      <ion-label class="tarea-content">
-        <strong><del style="color: var(--ion-color-medium);">Programar</del></strong>
-        <ion-note color="medium" class="tarea-description ion-text-nowrap">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus magni facilis inventore reiciendis dolorem reprehenderit officiis, ab eveniet eos explicabo impedit. Mollitia, harum totam odio atque facere officia ullam sint.
-        </ion-note><br>
-        <ion-badge slot="start">Trabajo</ion-badge>
-      </ion-label>
-      <div class="metadata-end-wrapper" slot="end">
-        <ion-note class="end-date" color="medium"><ion-icon color="success" name="checkmark"></ion-icon> Completada</ion-note>
-        <ion-icon color="medium" name="chevron-forward"></ion-icon>
-      </div>
-    </ion-item>
-    <ion-item-options side="end">
-      <ion-item-option color="danger"><ion-icon name="trash"></ion-icon></ion-item-option>
-      <ion-item-option color="medium"><ion-icon color="dark" name="alarm"></ion-icon></ion-item-option>
-      <ion-item-option color="success" expandable><ion-icon color="dark" name="checkmark"></ion-icon></ion-item-option>
+      <ion-item-option routerLink="/tareas/editar/{{ task.id }}" color="primary" expandable><ion-icon color="dark" name="create"></ion-icon></ion-item-option>
     </ion-item-options>
   </ion-item-sliding>
 </ion-list>
