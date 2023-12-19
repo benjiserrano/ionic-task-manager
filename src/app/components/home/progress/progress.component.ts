@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'app-home-progress',
@@ -7,10 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProgressComponent  implements OnInit {
 
-  task_pending = 2;
+  today: Date = new Date();
 
-  constructor() { }
+  constructor(public taskService: TaskService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
+
+  getDayPercentage() {
+    const horasTranscurridas = this.today.getHours();
+    const horasTotalesEnUnDia = 24;
+
+    // Calcula el porcentaje del día transcurrido.
+    const porcentaje = (horasTranscurridas / horasTotalesEnUnDia) * 100;
+  
+    return porcentaje;
+  }
+
+  
 
 }

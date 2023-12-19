@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Hacer compras",
+    "description": "Comprar comida para la semana",
+    "status": "pending",
+    "tags": [3, 4]
+  },
+  {
+    "id": 2,
+    "title": "Aprender Vue.js",
+    "description": "Visitar web y ver documentación",
+    "status": "pending",
+    "tags": [2]
+  },
+  {
+    "id": 3,
+    "title": "Enviar prueba técnica",
+    "description": "Subir a Git y enviar",
+    "status": "completed",
+    "tags": [1, 4]
+  }
+]

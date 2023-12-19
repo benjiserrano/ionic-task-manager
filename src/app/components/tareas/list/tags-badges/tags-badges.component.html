@@ -1,0 +1,3 @@
+<div *ngIf="tags">
+    <ion-badge *ngFor="let tag of tags" color="{{ tag.color }}" slot="start" style="margin-right: 5px;">{{ tag.name }}</ion-badge>
+</div>
