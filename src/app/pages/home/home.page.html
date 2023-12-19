@@ -9,9 +9,9 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Buenas tardes, <br>{{ user_firstName }}</ion-title>
+      <ion-title size="large"><app-home-welcome></app-home-welcome>, <br>{{ user_firstName }}</ion-title>
       <ion-buttons slot="end">
-        <ion-button>
+        <ion-button [routerLink]="['/profile']">
           <ion-avatar>
             <img src="https://ionicframework.com/docs/img/demos/avatar.svg" />
           </ion-avatar>
@@ -27,9 +27,14 @@
       <h1>Tareas para hoy:</h1>
     </ion-label>
   </ion-item>
-  <app-list></app-list>
+
+  <!-- RENDERIZAR TAREAS EN HOME -->
+  <ion-list [inset]="true">
+    <app-tasks-list></app-tasks-list>
+  </ion-list>
+  
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-    <ion-fab-button>
+    <ion-fab-button color="light" routerLink="/tareas/crear">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
