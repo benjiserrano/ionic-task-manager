@@ -6,7 +6,7 @@ export interface Tag {
 
 export const DefaultTags: Tag[] = [
   { id: 1, name: 'Trabajo', color: 'primary' },
-  { id: 2, name: 'Estudiar', color: 'secondary' },
+  { id: 2, name: 'Estudiar', color: 'tertiary' },
   { id: 3, name: 'Personal', color: 'warning' },
   { id: 4, name: 'Urgente', color: 'danger' }
 ];
