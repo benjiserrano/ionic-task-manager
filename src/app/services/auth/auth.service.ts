@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/models/User';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class AuthService {
   private users: User[] = [];
   public isAuthenticated = true;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private toast: ToastController) {
     this.getUsers();
   }
 
@@ -22,17 +23,20 @@ export class AuthService {
     }
   }
 
-  login(email: string, password: string): boolean {
+  login(email: string, password: string) {
     const user = this.users.find(user => user.email === email && user.password === password);
+
     if (user) {
       // Usuario encontrado, credenciales válidas
       this.isAuthenticated = true;
       localStorage.setItem('name', user.name);
       localStorage.setItem('isAuthenticated', 'true');
       this.router.navigateByUrl('/home')
+      this.notification('Sesión iniciada correctamente', 'success', 'checkmark')
+    } else {
+      console.log('erroneo')
+      this.notification('Credenciales no válidas', 'danger', 'close')
     }
-
-    return false; // Credenciales inválidas o usuario no encontrado
   }
 
   registerUser(newUser: User) {
@@ -71,6 +75,17 @@ export class AuthService {
   private generateUniqueId(): number {
     // Generar ID único
     return this.users.length + 1;
+  }
+
+  async notification(message: string, color?: string, icon?: string) {
+    await this.toast.create({
+      message: message,
+      duration: 2000,
+      color: color,
+      icon: icon
+    }).then(res => res.present())
+
+    
   }
 
 }
