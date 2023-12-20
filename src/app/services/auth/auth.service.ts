@@ -15,6 +15,7 @@ export class AuthService {
   }
 
   getUsers() {
+    // Obtener usuarios guardados del local storage
     const savedUsers = localStorage.getItem('users');
     if (savedUsers) {
       this.users = JSON.parse(savedUsers);

@@ -28,5 +28,6 @@
 
     </ion-list>
   
-    <ion-button class="ion-float-right ion-margin-end" (click)="submit()">Añadir tarea</ion-button>
+    <ion-button id="new-task" class="ion-float-right ion-margin-end" (click)="submit()">Añadir tarea</ion-button>
+    <ion-toast color="success" translucent="true" trigger="new-task" icon="checkmark" message="Tarea creada correctamente" [duration]="3400"></ion-toast>
 </ion-content>

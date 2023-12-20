@@ -1,4 +1,4 @@
-<ion-card>
+<ion-card *ngIf="taskService.tasks.length > 0">
   <ion-card-header>
     <ion-card-title style="font-weight: 400;">Tienes <b>{{ taskService.tasks_total - taskService.tasks_completed }}</b> tareas pendientes</ion-card-title>
   </ion-card-header>
@@ -7,5 +7,14 @@
     <p>Has realizado {{ taskService.tasks_completed }} de {{ taskService.tasks_total }} tareas:</p>
     <ion-progress-bar style="height: 10px;--background: rgb(70, 70, 70);--progress-background: var(--ion-color-success)" [buffer]="getDayPercentage() / 100" [value]="taskService.tasks_completed / taskService.tasks_total"></ion-progress-bar>
     <div style="text-align: center;"><small>{{ today | date:'HH:mm' }}</small></div>
+  </ion-card-content>
+</ion-card>
+
+<ion-card *ngIf="taskService.tasks.length == 0">
+  <ion-card-header>
+    <ion-card-title style="font-weight: 400;"><h4>No tienes tareas pendientes</h4></ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-button routerLink="/tareas/crear"><ion-icon name="add"></ion-icon> Crear tarea</ion-button>
   </ion-card-content>
 </ion-card>
