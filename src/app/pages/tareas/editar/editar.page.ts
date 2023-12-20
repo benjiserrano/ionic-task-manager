@@ -38,4 +38,16 @@ export class EditarPage implements OnInit {
     }
   }
 
+  delete() {
+    if(this.task !== undefined) {
+      this.taskService.deleteTask(this.task);
+    }
+  }
+
+  checkTask() {
+    if(this.task !== undefined) {
+      this.taskService.changeStatus(this.task, 'completed');
+    }
+  }
+
 }

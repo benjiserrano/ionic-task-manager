@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tareas
+      Tienes {{ (taskService.tasks_total - taskService.tasks_completed ) }} tareas pendientes
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -22,7 +22,7 @@
 
   <app-home-progress></app-home-progress>
 
-  <ion-item>
+  <ion-item *ngIf="taskService.tasks.length != 0">
     <ion-label>
       <h1>Tareas para hoy:</h1>
     </ion-label>
@@ -32,6 +32,7 @@
   <ion-list [inset]="true">
     <app-tasks-list></app-tasks-list>
   </ion-list>
+  
   
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
     <ion-fab-button color="light" routerLink="/tareas/crear">

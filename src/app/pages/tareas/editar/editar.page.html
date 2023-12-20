@@ -49,4 +49,16 @@
   </ion-list>
 
   <ion-button *ngIf="task && loading == false" class="ion-float-right ion-margin-end" (click)="save()">Guardar cambios</ion-button>
+  <ion-button id="delete-task" *ngIf="task && loading == false" color="danger" class="ion-float-right ion-margin-end" (click)="delete()"><ion-icon name="trash"></ion-icon> Eliminar</ion-button>
+
+  <ion-toast color="danger" translucent="true" trigger="delete-task" icon="trash" message="Tarea elminada correctamente" [duration]="3000"></ion-toast>
+
+  <ion-fab *ngIf="task && loading == false" slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button id="check-task" color="success" (click)="checkTask()">
+      <ion-icon name="checkmark"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-toast color="success" translucent="true" trigger="check-task" icon="checkmark" message="Tarea completada" [duration]="3000"></ion-toast>
+
 </ion-content>

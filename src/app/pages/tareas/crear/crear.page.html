@@ -7,7 +7,8 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Añadir tarea</ion-title>
+      <ion-title *ngIf="nuevaTarea.title.length == 0" size="large">Añadir tarea</ion-title>
+      <ion-title *ngIf="nuevaTarea.title.length > 0" size="large">{{ nuevaTarea.title }}</ion-title>
     </ion-toolbar>
   </ion-header>
     
@@ -28,5 +29,6 @@
 
     </ion-list>
   
-    <ion-button class="ion-float-right ion-margin-end" (click)="submit()">Añadir tarea</ion-button>
+    <ion-button [disabled]="nuevaTarea.title.length == 0" id="new-task" class="ion-float-right ion-margin-end" (click)="submit()">Añadir tarea</ion-button>
+    <ion-toast color="success" translucent="true" trigger="new-task" icon="checkmark" message="Tarea creada correctamente" [duration]="3400"></ion-toast>
 </ion-content>
