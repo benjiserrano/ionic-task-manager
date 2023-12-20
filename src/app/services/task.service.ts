@@ -34,6 +34,7 @@ export class TaskService {
     ***/
 
     this.updateTasksCount();
+    this.router.navigateByUrl('/home') // Volver al home
   }
 
   updateTasksCount() {
@@ -82,7 +83,6 @@ export class TaskService {
     }
     
     this.updateTasks();
-    this.router.navigateByUrl('/home') // Volver al home
   }
 
   deleteTask(task: Task) {
