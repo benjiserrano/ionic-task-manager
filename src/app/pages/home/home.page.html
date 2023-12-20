@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tareas
+      Tienes {{ (taskService.tasks_total - taskService.tasks_completed ) }} tareas pendientes
     </ion-title>
   </ion-toolbar>
 </ion-header>
