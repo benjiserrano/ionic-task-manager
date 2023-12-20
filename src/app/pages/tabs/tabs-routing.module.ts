@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+import { AuthGuard } from 'src/app/services/auth/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: TabsPage,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'tareas',

@@ -17,7 +17,7 @@
         <app-tags-badges [tagsIds]="task.tags"></app-tags-badges>
       </ion-label>
       <div class="metadata-end-wrapper" slot="end">
-        <ion-note class="end-date" color="medium">
+        <ion-note [routerLink]="'/tareas/editar/' + task.id" class="end-date" color="medium">
           <ion-icon *ngIf="task.status === 'completed'" name="checkmark" color="success"></ion-icon>
           <ion-icon *ngIf="task.status === 'pending'" name="time-outline"></ion-icon>
           <ion-icon *ngIf="task.status === 'in_progress'" name="refresh-outline" color="warning"></ion-icon>

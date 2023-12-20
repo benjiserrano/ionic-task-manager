@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { CrearPage } from './crear.page';
-import { AuthGuard } from 'src/app/services/auth/auth.guard';
+import { PerfilPage } from './perfil.page';
+import { AuthGuard } from '../services/auth/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: CrearPage,
+    component: PerfilPage,
     canActivate: [AuthGuard]
   }
 ];
@@ -16,4 +16,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class CrearPageRoutingModule {}
+export class PerfilPageRoutingModule {}
