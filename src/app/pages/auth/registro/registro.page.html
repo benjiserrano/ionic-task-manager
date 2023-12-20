@@ -1,0 +1,25 @@
+<ion-content [fullscreen]="true" class="ion-text-center ion-padding-vertical">
+  <div class="container-vcenter">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-img style="max-width: 400px;margin: 0 auto" class="ion-text-center" src="../../../assets/logo.svg"></ion-img>
+      </ion-toolbar>
+    </ion-header>
+  
+    <div class="ion-margin" *ngIf="newUser">
+      <ion-item>
+        <ion-input [(ngModel)]="newUser.name" label="Nombre" type="text" labelPlacement="floating" placeholder="Nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="newUser.email" label="Correo electrónico" type="email" labelPlacement="floating" placeholder="Correo electrónico"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input [(ngModel)]="newUser.password" type="password" label="Contraseña" type="password" labelPlacement="floating" placeholder="Contraseña"></ion-input>
+      </ion-item>
+  
+      <ion-button class="ion-margin-top" expand="full" (click)="registrarUsuario()">Crear cuenta</ion-button>
+      <ion-button expand="full" color="dark" fill="outline" routerLink="/login">Iniciar sesion</ion-button>
+    </div>
+  </div>
+</ion-content>
