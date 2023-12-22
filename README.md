@@ -70,4 +70,3 @@ Esto iniciará el servidor de desarrollo. Accede a 'http://localhost:8100' en tu
     - [x] Registro
 - [ ] Calendario (Sección)
 - [ ] Tareas (Sección)
-
