@@ -6,6 +6,8 @@ La principal idea era aprovechar la plantilla "tabs" que ofrece Ionic para divid
 - Tareas (En construcción): Donde se muestran las tareas categorizadas por etiquetas.
 - Calendario (En construcción): Una vista general de calendario donde se organizan las tareas y puedes consultar un día concreto.
 
+> IMPORTANTE: El diseño ha sido trabajado en modo oscuro y para versión móvil o tablet. Tener en cuenta esto a la hora del testing.
+
 ## Estructura del proyecto
 
 #### /src
@@ -26,14 +28,20 @@ La principal idea era aprovechar la plantilla "tabs" que ofrece Ionic para divid
 ## Instalación
 
 1. **Clonar repositorio:**
+```
 git clone https://github.com/benjiserrano/task-manager.git
 cd task-manager
+```
 
-2. **Instalar dependencias:**
+3. **Instalar dependencias:**
+```
 npm install
+```
 
-3. **Iniciar el servidor de desarrollo:**
+4. **Iniciar el servidor de desarrollo:**
+```
 ionic serve
+```
 
 Esto iniciará el servidor de desarrollo. Accede a 'http://localhost:8100' en tu navegador para ver la aplicación.
 
@@ -62,4 +70,3 @@ Esto iniciará el servidor de desarrollo. Accede a 'http://localhost:8100' en tu
     - [x] Registro
 - [ ] Calendario (Sección)
 - [ ] Tareas (Sección)
-
