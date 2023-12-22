@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Task } from '../models/Task';
 import { Router } from '@angular/router';
 
@@ -10,21 +10,45 @@ import { Router } from '@angular/router';
 export class TaskService {
 
   private tasksUrl = 'assets/database/tasks.json'; // Ruta al archivo de tareas mockeadas
+  private tasksKey = 'tasks';
+
   tasks: Task[] = [];
   tasks_total: number = 0;
   tasks_completed: number = 0;
 
   constructor(private http: HttpClient, private router: Router) {
-    this.getTasks().subscribe(data => {
-      this.tasks = data;
-      this.tasks_total = data.length;
-      this.tasks_completed = data.filter(task => task.status === 'completed').length;
-    });
+    // Comprobar tareas en local storage
+    const tasksStorage = localStorage.getItem(this.tasksKey)
+    if(tasksStorage) {
+      // Cargar tareas de local storage
+      this.tasks = JSON.parse(tasksStorage);
+    } else {
+      // Guardamos tareas del JSON
+      this.getTasksFromJson().subscribe(data => {
+        this.tasks = data;
+        // this.tasks_total = data.length;
+        // this.tasks_completed = data.filter(task => task.status === 'completed').length;
+      });
+    }
+
+    this.updateTasksCount();
+
+    
   }
 
-  getTasks(): Observable<Task[]> {
+  getTasksFromStorage(): Observable<Task[] | null> {
+    const storedTasks = localStorage.getItem(this.tasksKey);
+    return of(storedTasks ? JSON.parse(storedTasks) : null);
+  }
+
+  getTasksFromJson(): Observable<Task[]> {
     // Obtener y formatear tareas del archivo tasks.json
     return this.http.get<Task[]>(this.tasksUrl);
+  }
+
+  saveTasks() {
+    // Guardar tareas con Local Storage
+    localStorage.setItem(this.tasksKey, JSON.stringify(this.tasks));
   }
 
   updateTasks() {
@@ -32,7 +56,7 @@ export class TaskService {
     Añadir funciones necesarias cuando se realicen acciones sobre una tarea.
     Reemplazar más adelante por ngOnChange.
     ***/
-
+    this.saveTasks();
     this.updateTasksCount();
     this.router.navigateByUrl('/home') // Volver al home
   }
