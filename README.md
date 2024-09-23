@@ -1,13 +1,3 @@
-## Sobre el proyecto
-
-La principal idea era aprovechar la plantilla "tabs" que ofrece Ionic para dividir la app en 3 secciones:
-
-- Home: En la que contiene una vista general de las tareas diarias.
-- Tareas (En construcción): Donde se muestran las tareas categorizadas por etiquetas.
-- Calendario (En construcción): Una vista general de calendario donde se organizan las tareas y puedes consultar un día concreto.
-
-> IMPORTANTE: El diseño ha sido trabajado en modo oscuro y para versión móvil o tablet. Tener en cuenta esto a la hora del testing.
-
 ## Estructura del proyecto
 
 #### /src
